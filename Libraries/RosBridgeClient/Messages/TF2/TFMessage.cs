@@ -1,6 +1,6 @@
-﻿/*
-© Siemens AG, 2017-2018
-Author: Dr. Martin Bischoff (martin.bischoff@siemens.com)
+/*
+© Cutter Systems spol. s r.o., 2018
+Author: Petr Kalandra (kalandra@cutter.cz)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,19 +14,22 @@ limitations under the License.
 */
 
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using RosSharp.RosBridgeClient.Messages.Standard;
 
-namespace RosSharp.RosBridgeClient.Messages.Standard
+namespace RosSharp.RosBridgeClient.Messages.TF2
 {
-    public class Time : Message
-    {
-        [JsonIgnore]
-        public const string RosMessageName = "std_msgs/Time";
-        public uint secs;
-        public uint nsecs;
-        public Time()
-        {
-            secs = 0;
-            nsecs = 0;
-        }
-    }
+	public class TFMessage
+	{
+		[JsonIgnore]
+		public const string RosMessageName = "tf2_msgs/TFMessage";
+
+		public List<RosSharp.RosBridgeClient.Messages.Geometry.TransformStamped> transforms;
+
+
+		public TFMessage()
+		{
+			transforms = new List<RosSharp.RosBridgeClient.Messages.Geometry.TransformStamped>();
+		}
+	}
 }

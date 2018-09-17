@@ -15,18 +15,25 @@ limitations under the License.
 
 using Newtonsoft.Json;
 
-namespace RosSharp.RosBridgeClient.Messages.Standard
+namespace RosSharp.RosBridgeClient.Messages.Navigation
 {
-    public class Time : Message
+    public class MapMetaData : Message
     {
         [JsonIgnore]
-        public const string RosMessageName = "std_msgs/Time";
-        public uint secs;
-        public uint nsecs;
-        public Time()
+        public const string RosMessageName = "nav_msgs/MapMetaData";
+        public Standard.Time map_load_time;
+        public float resolution;
+        public uint width;
+        public uint height;
+        public Geometry.Pose origin;
+
+        public MapMetaData()
         {
-            secs = 0;
-            nsecs = 0;
+            map_load_time = null;
+            resolution = 0;
+            width = 0;
+            height = 0;
+            origin = new Geometry.Pose();
         }
     }
 }

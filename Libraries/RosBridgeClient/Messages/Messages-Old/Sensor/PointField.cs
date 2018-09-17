@@ -15,18 +15,22 @@ limitations under the License.
 
 using Newtonsoft.Json;
 
-namespace RosSharp.RosBridgeClient.Messages.Standard
+namespace RosSharp.RosBridgeClient.Messages.Sensor
 {
-    public class Time : Message
+    public class PointField : Message
     {
         [JsonIgnore]
-        public const string RosMessageName = "std_msgs/Time";
-        public uint secs;
-        public uint nsecs;
-        public Time()
+        public const string RosMessageName = "sensor_msgs/PointField";
+        public int datatype;
+        public string name;
+        public int offset;
+        public int count;
+        public PointField()
         {
-            secs = 0;
-            nsecs = 0;
+            datatype = 0;
+            name = "";
+            offset = 0;
+            count = 0;
         }
     }
 }

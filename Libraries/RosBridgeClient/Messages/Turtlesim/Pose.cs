@@ -1,6 +1,6 @@
-﻿/*
-© Siemens AG, 2017-2018
-Author: Dr. Martin Bischoff (martin.bischoff@siemens.com)
+/*
+© Cutter Systems spol. s r.o., 2018
+Author: Petr Kalandra (kalandra@cutter.cz)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -14,19 +14,29 @@ limitations under the License.
 */
 
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using RosSharp.RosBridgeClient.Messages.Standard;
 
-namespace RosSharp.RosBridgeClient.Messages.Standard
+namespace RosSharp.RosBridgeClient.Messages.Turtlesim
 {
-    public class Time : Message
-    {
-        [JsonIgnore]
-        public const string RosMessageName = "std_msgs/Time";
-        public uint secs;
-        public uint nsecs;
-        public Time()
-        {
-            secs = 0;
-            nsecs = 0;
-        }
-    }
+	public class Pose
+	{
+		[JsonIgnore]
+		public const string RosMessageName = "turtlesim/Pose";
+
+		public float x;
+
+		public float y;
+
+		public float theta;
+
+		public float linear_velocity;
+
+		public float angular_velocity;
+
+
+		public Pose()
+		{
+		}
+	}
 }

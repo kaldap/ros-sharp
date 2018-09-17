@@ -17,13 +17,13 @@ using Newtonsoft.Json;
 
 namespace RosSharp.RosBridgeClient.Messages.Standard
 {
-    public class Time : Message
+    public class Duration : Message
     {
         [JsonIgnore]
-        public const string RosMessageName = "std_msgs/Time";
-        public uint secs;
-        public uint nsecs;
-        public Time()
+        public const string RosMessageName = "std_msgs/Duration";
+        public int secs;
+        public int nsecs;
+		public Duration()
         {
             secs = 0;
             nsecs = 0;

@@ -15,18 +15,20 @@ limitations under the License.
 
 using Newtonsoft.Json;
 
-namespace RosSharp.RosBridgeClient.Messages.Standard
+namespace RosSharp.RosBridgeClient.Messages.Geometry
 {
-    public class Time : Message
+    public class Point : Message
     {
         [JsonIgnore]
-        public const string RosMessageName = "std_msgs/Time";
-        public uint secs;
-        public uint nsecs;
-        public Time()
+        public const string RosMessageName = "geometry_msgs/Point";
+        public float x;
+        public float y;
+        public float z;
+        public Point()
         {
-            secs = 0;
-            nsecs = 0;
+            x = 0;
+            y = 0;
+            z = 0;
         }
     }
 }

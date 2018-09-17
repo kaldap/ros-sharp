@@ -15,18 +15,28 @@ limitations under the License.
 
 using Newtonsoft.Json;
 
-namespace RosSharp.RosBridgeClient.Messages.Standard
+namespace RosSharp.RosBridgeClient.Messages.Sensor
 {
-    public class Time : Message
+    public class Image : Message
     {
         [JsonIgnore]
-        public const string RosMessageName = "std_msgs/Time";
-        public uint secs;
-        public uint nsecs;
-        public Time()
+        public const string RosMessageName = "sensor_msgs/Image";
+        public Standard.Header header;
+        public int height;
+        public int width;
+        public string encoding;
+        public byte is_bigendian;
+        public int step;
+        public byte[] data;
+        public Image()
         {
-            secs = 0;
-            nsecs = 0;
+            header = new Standard.Header();
+            height = 0;
+            width = 0;
+            encoding = "undefined";
+            is_bigendian = 0;
+            step = 0;
+            data = new byte[0];
         }
     }
 }

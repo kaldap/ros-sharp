@@ -1,6 +1,6 @@
-﻿/*
-© Siemens AG, 2017-2018
-Author: Dr. Martin Bischoff (martin.bischoff@siemens.com)
+/*
+© Lukas Kern, 2018
+Author: Lukas Kern
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -15,18 +15,18 @@ limitations under the License.
 
 using Newtonsoft.Json;
 
-namespace RosSharp.RosBridgeClient.Messages.Standard
+namespace RosSharp.RosBridgeClient.Messages.Geometry
 {
-    public class Time : Message
+    public class PointStamped : Message
     {
         [JsonIgnore]
-        public const string RosMessageName = "std_msgs/Time";
-        public uint secs;
-        public uint nsecs;
-        public Time()
+        public const string RosMessageName = "geometry_msgs/PointStamped";
+        public Standard.Header header;
+        public Point point;
+        public PointStamped()
         {
-            secs = 0;
-            nsecs = 0;
+            header = new Standard.Header();
+            point = new Point();
         }
     }
 }
